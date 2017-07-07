@@ -27,8 +27,9 @@ export class LoginPage {
  
   public login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {        
+    this.auth.login(this.registerCredentials).subscribe(data => {
+      if (data.data.success) {        
+        this.auth.setUserInfo(this.registerCredentials.email);
         this.nav.setRoot('HomePage');
       } else {
         this.showError("Access Denied");

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import { Http } from '@angular/http';
+//import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response } from '@angular/http';
+import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -21,6 +23,7 @@ export class User {
  
 @Injectable()
 export class AuthService {
+  constructor(private http:Http) { }
   currentUser: User;
  
   public login(credentials) {
@@ -29,10 +32,10 @@ export class AuthService {
     } else {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "pass" && credentials.email === "email");
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
-        observer.next(access);
-        observer.complete();
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.http.post("https://dondeeshoyapi.herokuapp.com/api/login",credentials, options).map((res: Response) => res.json());
+        
       });
     }
   }
@@ -42,15 +45,19 @@ export class AuthService {
       return Observable.throw("Please insert credentials");
     } else {
       // At this point store the credentials to your backend!
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post("https://dondeeshoyapi.herokuapp.com/api/users",credentials, options).map((res: Response) => res.json());
+
     }
   }
  
   public getUserInfo() : User {
     return this.currentUser;
+  }
+ 
+  public setUserInfo( email) {
+    this.currentUser = new User("name", email);
   }
  
   public logout() {

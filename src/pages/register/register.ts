@@ -9,15 +9,24 @@ import { AuthService } from '../../providers/auth-service/auth-service';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { email: '', password: '' };
+  registerCredentials = { email: '', password: '', name: '', lastName: '' };
  
   constructor(private nav: NavController, private auth: AuthService, private alertCtrl: AlertController) { }
  
   public register() {
-    this.auth.register(this.registerCredentials).subscribe(success => {
-      if (success) {
+    let registerData = {
+      email: this.registerCredentials.email,
+      name: this.registerCredentials.name,
+      lastName: this.registerCredentials.lastName,
+      password: this.registerCredentials.password,
+
+    };
+    this.auth.register(registerData).subscribe(data => {
+      console.log(data.data);
+      if (data.data.success) {
         this.createSuccess = true;
         this.showPopup("Success", "Account created.");
+        
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
