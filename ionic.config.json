@@ -1,5 +1,6 @@
 {
-  "name": "dondeEsHoyApp",
-  "app_id": "dfb79f32",
-  "type": "ionic-angular"
+  "name": "dondeEsHoy",
+  "integrations": {},
+  "type": "angular",
+  "id": "3c0b8843"
 }
