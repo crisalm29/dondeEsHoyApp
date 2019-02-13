@@ -1,6 +1,8 @@
 {
   "name": "dondeEsHoy",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "3c0b8843"
 }
