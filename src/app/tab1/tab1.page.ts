@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Geolocation, Geoposition } from '@ionic-native/geolocation';
+import { Routes, Router, RouterModule } from '@angular/router';
 
 
 declare var google;
@@ -16,7 +17,7 @@ export class Tab1Page {
 
   map: any;
   geolocation = Geolocation;
-  constructor() {
+  constructor(private router: Router) {
   	this.getPosition();
   }
 
@@ -27,11 +28,7 @@ export class Tab1Page {
 
   getPosition():any{
 
-    /*this.geolocation.getCurrentPosition(function(response){
-    	      this.loadMap(response);
-    }, function(error){
-    	console.log(error);
-    });*/
+    
     this.geolocation.getCurrentPosition()
     .then(response => {
     	console.log("get location response");
@@ -41,6 +38,9 @@ export class Tab1Page {
       console.log("error:" + error);
     })
   }
+
+
+
 loadMap(position: Geoposition){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -65,6 +65,11 @@ loadMap(position: Geoposition){
         map: this.map,
         title: 'Hello World!'
       });	
+      marker.addListener('click', () => {
+        
+        this.router.navigateByUrl('/place-page');
+
+      });
       mapEle.classList.add('show-map');
     });
   }
