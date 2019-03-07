@@ -60,14 +60,22 @@ loadMap(position: Geoposition){
 
 
     google.maps.event.addListenerOnce(this.map, 'idle', () => {
+      let image = new google.maps.MarkerImage(
+          '/assets/images/marker1.png',
+          null,
+          null,
+          null,
+          new google.maps.Size(20, 32)
+        );
       let marker = new google.maps.Marker({
         position: myLatLng,
         map: this.map,
-        title: 'Hello World!'
+        title: 'Hello World!',
+        icon: image
       });	
       marker.addListener('click', () => {
         
-        this.router.navigateByUrl('/place-page');
+        this.router.navigateByUrl('/tabs/tab2');
 
       });
       mapEle.classList.add('show-map');
