@@ -1,0 +1,40 @@
+<app-header title="Profile"></app-header>
+
+<ion-content padding="padding">
+  <ion-item>
+    <ion-avatar slot="start">
+      <img src="/assets/images/profile.jpg">
+    </ion-avatar>
+
+    <ion-label>
+      {{ user.name }} {{ user.lastname }}
+    </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+
+    <ion-input
+      type="text"
+      [(ngModel)]="user.email"
+    ></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label position="floating">Location</ion-label>
+  
+      <ion-input
+        type="text"
+        [(ngModel)]="user.town"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label position="floating">Birthday</ion-label>
+    
+        <ion-input
+          type="text"
+          [(ngModel)]="user.birthday"
+        ></ion-input>
+      </ion-item>
+</ion-content>

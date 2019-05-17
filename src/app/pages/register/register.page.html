@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form
+    #form="ngForm"
+    (ngSubmit)="onSubmitTemplate()"
+  >
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+
+        <ion-input
+          type="text"
+          name="name"
+          [(ngModel)]="user.name"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+
+        <ion-input
+          type="text"
+          name="lastname"
+          [(ngModel)]="user.lastname"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+
+        <ion-input
+          type="email"
+          name="email"
+          pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+          [(ngModel)]="user.email"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Country</ion-label>
+
+        <ion-input
+          type="text"
+          name="country"
+          [(ngModel)]="user.country"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">State</ion-label>
+
+        <ion-input
+          type="text"
+          name="state"
+          [(ngModel)]="user.state"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Town</ion-label>
+
+        <ion-input
+          type="text"
+          name="town"
+          [(ngModel)]="user.town"
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label position="floating">Birthday</ion-label>
+        <ion-datetime 
+        name="birthday"
+        display-format="DD MMMM YYYY"
+        cancelText="Cancel"
+        [ngModel]="user.birthday.toISOString()"
+        ></ion-datetime>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label position="floating">Birthday</ion-label>
+
+        <ion-datetime
+          name="birthday"
+          display-format="DD/MM/YYYY"
+          min="1900-01-01"
+          [ngModel]="user.birthday"
+        ></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+
+        <ion-input
+          type="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required="required"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]="form.invalid"
+    >Register</ion-button>
+  </form>
+</ion-content>
