@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button
-        defaultHref="/"
-      ></ion-back-button>
+      <ion-back-button defaultHref="/login"></ion-back-button>
     </ion-buttons>
 
     <ion-title>Register</ion-title>
@@ -51,12 +49,12 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Country</ion-label>
+        <ion-label position="floating">County</ion-label>
 
         <ion-input
           type="text"
           name="country"
-          [(ngModel)]="user.country"
+          [(ngModel)]="user.county"
           required="required"
         ></ion-input>
       </ion-item>
@@ -119,6 +117,8 @@
     <ion-button
       expand="full"
       type="submit"
+      color="secondary"
+      shape="round"
       [disabled]="form.invalid"
     >Register</ion-button>
   </form>

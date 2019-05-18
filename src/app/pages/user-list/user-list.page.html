@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        defaultHref="/"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Usuarios Comprometidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let user of users | async">
+      <ion-label>{{ user.name }} {{ user.lastname }} <small>{{ user.email }}</small></ion-label>
+      <p>{{ user.password }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

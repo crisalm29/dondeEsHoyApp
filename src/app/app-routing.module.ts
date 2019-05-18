@@ -9,7 +9,11 @@ const routes: Routes = [
   { path: 'map', loadChildren: './pages/map/map.module#MapPageModule' },
   { path: 'profile', loadChildren: './pages/profile/profile.module#ProfilePageModule' },
   { path: 'main-tabs', loadChildren: './pages/main-tabs/main-tabs.module#MainTabsPageModule' },
-  { path: 'promo-detail/:id', loadChildren: './pages/promo-detail/promo-detail.module#PromoDetailPageModule' }
+  { path: 'promo-detail/:id', loadChildren: './pages/promo-detail/promo-detail.module#PromoDetailPageModule' },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
+  { path: 'user-list', loadChildren: './pages/user-list/user-list.module#UserListPageModule' }
+
+
 
 
 ];

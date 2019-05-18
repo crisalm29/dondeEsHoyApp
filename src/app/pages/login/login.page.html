@@ -1,0 +1,72 @@
+<ion-content>
+  <form
+    (ngSubmit)="login( fLogin )"
+    #fLogin="ngForm"
+  >
+    <ion-grid fixed="fixed">
+      <ion-row>
+        <ion-col text-center>
+          <img src="/assets/icon/favicon.png">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-label>Email</ion-label>
+
+              <ion-input
+                name="email"
+                type="email"
+                [(ngModel)]="loginUser.email"
+                required="required"
+              ></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Password</ion-label>
+
+              <ion-input
+                name="password"
+                type="password"
+                [(ngModel)]="loginUser.password"
+                required="required"
+              ></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button
+            expand="full"
+            type="submit"
+            color="secondary"
+            shape="round"
+          >Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <ion-row>
+      <ion-col text-center>
+        <a
+          href="/"
+        >Forgot Passwd??</a>
+      </ion-col>
+    </ion-row>
+</ion-content>
+
+<ion-footer no-border="no-border">
+  <ion-toolbar>
+    <ion-row>
+      <ion-col text-center>
+        <a
+          href="/register"
+        >Create new Account</a>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

@@ -13,8 +13,8 @@ export class ProfilePage implements OnInit {
     email: "badluck@gmail.com",
     birthday: "11/11/1987",
     state: "Heredia",
-    country: "Costa Rica",
-    town: "Barva"
+    county: "Barva",
+    town: "San Roque"
   }
 
   constructor() { }

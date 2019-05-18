@@ -21,11 +21,12 @@ export class PopinfoComponent implements OnInit {
     this.popoverCtrl.dismiss();
     
     switch(option){
-      case "register": //Ruta temporal para acceder mientras se desarrolla
-      this.router.navigateByUrl("/register");
+      case "users": //Ruta temporal para probar conexion con Backend
+      this.router.navigateByUrl("/user-list");
       break;
       case "logout":
       //implementar logica de logout
+      this.router.navigateByUrl("/login");
       break;
     }
   }
