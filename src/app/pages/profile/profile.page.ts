@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorageService }from 'src/app/local-storage.service'
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -17,9 +19,15 @@ export class ProfilePage implements OnInit {
     town: "San Roque"
   }
 
-  constructor() { }
+  constructor(private localStorage: LocalStorageService,
+               private navCtrl: NavController ) { }
 
   ngOnInit() {
+  }
+
+  logout(){
+    this.localStorage.destroySession();
+    this.navCtrl.navigateRoot( '/login' );
   }
 
 }

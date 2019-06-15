@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { UsersService } from 'src/app/services/users.service';
+import { LocalStorageService }from 'src/app/local-storage.service'
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class LoginPage implements OnInit {
   };
 
   constructor( private usersService: UsersService,
-               private navCtrl: NavController) { }
+               private navCtrl: NavController,
+               private localStorage: LocalStorageService) { }
 
   ngOnInit() {
   }
@@ -31,6 +33,7 @@ export class LoginPage implements OnInit {
 
     if ( valido ) {
       this.navCtrl.navigateRoot( '/main-tabs' );
+      this.localStorage.saveSession('jwt');
     } else {
     }
 
