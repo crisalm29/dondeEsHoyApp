@@ -12,13 +12,14 @@ import { LocalStorageService }from 'src/app/local-storage.service'
 export class LoginPage implements OnInit {
 
   loginUser = {
-    email: 'test1@test.com',
-    password: '123456'
+    email: 'leofp95@gmail.com',
+    password: 'password3'
   };
 
-  constructor( private usersService: UsersService,
-               private navCtrl: NavController,
-               private localStorage: LocalStorageService) { }
+  constructor( 
+    private usersService: UsersService,
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
@@ -27,17 +28,10 @@ export class LoginPage implements OnInit {
 
     if ( fLogin.invalid ) { return; }
 
-    //const valido = await this.usersService.login( this.loginUser.email, this.loginUser.password );
-
-    const valido = true;
-
+    const valido = await this.usersService.login( this.loginUser.email, this.loginUser.password )
     if ( valido ) {
       this.navCtrl.navigateRoot( '/main-tabs' );
-      this.localStorage.saveSession('jwt');
-    } else {
     }
-
-
   }
 
   mostrarRegistro() {
