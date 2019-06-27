@@ -1,5 +1,9 @@
 <ion-tabs class="menu-bar">
-
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="goToCart($event)" color="danger" class="ion-color-danger" >
+        <ion-icon name="cart"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="map">
         <ion-icon name="map"></ion-icon>

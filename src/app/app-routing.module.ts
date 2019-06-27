@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'main-tabs', loadChildren: './pages/main-tabs/main-tabs.module#MainTabsPageModule', canActivate: [AuthGuard] },
   { path: 'promo-detail/:id', loadChildren: './pages/promo-detail/promo-detail.module#PromoDetailPageModule', canActivate: [AuthGuard]  },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule'},
-  { path: 'user-list', loadChildren: './pages/user-list/user-list.module#UserListPageModule', canActivate: [AuthGuard]  }
+  { path: 'user-list', loadChildren: './pages/user-list/user-list.module#UserListPageModule', canActivate: [AuthGuard]  },  { path: 'cart', loadChildren: './cart/cart.module#CartPageModule' }
+
 
 
 

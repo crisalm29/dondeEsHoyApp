@@ -51,7 +51,12 @@ loadMap(position: Geoposition){
     // create map
     this.map = new google.maps.Map(mapEle, {
       center: myLatLng,
-      zoom: 12
+      zoom: 12,
+      fullscreenControl: false,
+      zoomControl: false,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: false
     });
 
 

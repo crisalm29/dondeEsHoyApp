@@ -1,15 +1,13 @@
 <app-header title="Profile"></app-header>
 
 <ion-content padding="padding">
-  <ion-item>
-    <ion-avatar slot="start">
+    <ion-avatar>
       <img src="/assets/images/profile.jpg">
     </ion-avatar>
 
-    <ion-label>
+    <ion-list-header style="font-size: 1.3em">
       {{ user.name }} {{ user.lastname }}
-    </ion-label>
-  </ion-item>
+    </ion-list-header>
 
   <ion-item>
     <ion-label position="floating">Email</ion-label>

@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button style="color: white !important;"></ion-back-button>
+      </ion-buttons>
+    <ion-title>Carrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-header>
+
+  <ion-toolbar>
+    <ion-title><h2>{{carrito.tienda}}</h2></ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>{{carrito.ubicacion}}</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+	<ion-list>
+	  <ion-item  color="dark" class="ion-color ion-color-dark" *ngFor="let producto of carrito.productos" >
+	    <ion-label style="font-family: var(--ion-font-family,inherit);">{{producto.nombre}}</ion-label>
+	    <ion-note  style="font-family: var(--ion-font-family,inherit);" slot="end" color="light" class="ion-color-light">
+	    	<ion-icon  (click)="sumProd(producto.id)" name="add-circle"></ion-icon> 
+	    	<span style="font-size: 1.3em"> {{producto.cantidad}} </span> 
+	    	<ion-icon (click)="quitarProd(producto.id)"  name="remove-circle"></ion-icon>
+	    </ion-note>
+	    <ion-note style="font-family: var(--ion-font-family,inherit);" slot="end" color="success" class="ion-color ion-color-success ios hydrated">${{producto.precio * producto.cantidad}}</ion-note>
+	  </ion-item>
+	</ion-list>
+	<ion-card  color="light" class="ion-color ion-color-light">
+	  <ion-card-header>
+	    <ion-card-subtitle>Total</ion-card-subtitle>
+	    <ion-card-title>₡{{ this.calcTotal() }}</ion-card-title>
+	  </ion-card-header>
+	</ion-card>
+	<ion-button color="success" expand="block"><b>Realizar pedido</b></ion-button>
+</ion-content>

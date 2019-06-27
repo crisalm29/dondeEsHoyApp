@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PopinfoComponent } from '../popinfo/popinfo.component';
 import { PopoverController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
   @Input() title: string;
 
-  constructor( private popoverCtrl: PopoverController ) { }
+  constructor( private popoverCtrl: PopoverController,
+               private navCtrl: NavController ) { }
 
   ngOnInit() {
   }
@@ -28,6 +30,12 @@ export class HeaderComponent implements OnInit {
     await popover.present();
 
     await popover.onWillDismiss();
+
+  }
+
+  async goToCart( evento ){
+
+    this.navCtrl.navigateForward("/cart");
 
   }
 
