@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanLoad } from '@angular/router';
 import { LocalStorageService } from './local-storage.service'
+import { UsersService } from './services/users.service';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard implements CanActivate{
+    
+    constructor(private usersService: UsersService) { }
 
-    constructor(private router: Router, private local_storage: LocalStorageService) { }
-
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.local_storage.getSession()) {
-            // logged in so return true
-            return true;
-        }
-
-        // not logged in so redirect to login page with the return url
-        this.router.navigate(['/login']);
-        return false;
+    canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+        return this.usersService.validaToken();
     }
 }
